@@ -1,0 +1,80 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#define MAX_SIZE 101
+
+int main()
+{
+    int n;
+    int m;
+    int i;
+    int j;
+    int a;
+    int b;
+    int c;
+    int d;
+    int e;
+    int f;
+    int temp;
+    int list[MAX_SIZE];
+
+    srand((unsigned)time(NULL));
+
+    scanf("%d", &n);
+
+    for(i = 0; i < n; i++)
+    {
+        list[i] = (rand() % 100000) + 1;
+        for (j = 0; j < i; j++)
+        {
+            if (list[i] == list[j]) i--;
+        }
+    }    
+
+    for (a = 0; a < sizeof(list[i]) / 4; a++)
+    {
+        for (b = 0; b < sizeof(list[i]) / 4 - 1; b++)
+        {
+            if (list[b] < list [b + 1])
+            {
+            temp = list[b];
+            list[b] = list [b + 1];
+            list[b + 1] = temp;
+            }
+        }
+    }
+    for (a = 0; a < n;  a++)
+    {
+        printf("%d", list[a]);
+    }
+    
+    scanf("%d", &m);
+
+    for(c = 0; c < m; c++)
+    {
+        list[c] = (rand() % 100000) + 1;
+        for (d = 0; d < c; d++)
+        {
+            if (list[c] == list[d]) i--;
+        }
+    } 
+
+    for (e = 0; e < sizeof(list[c]) / 4; e++)
+    {
+        for (f = 0; f < sizeof(list[c]) / 4 - 1; f++)
+        {
+            if (list[f] < list [f + 1])
+            {
+            temp = list[f];
+            list[f] = list [f + 1];
+            list[f + 1] = temp;
+            }
+        }
+    }
+    for (e = 0; e < m;  e++)
+    {
+        printf("%d", list[e]);
+    }   
+
+    return 0;
+}
